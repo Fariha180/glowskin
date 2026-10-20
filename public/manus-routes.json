@@ -1,0 +1,1 @@
+{"routes":[{"path":"/","title":"Home"},{"path":"/shop","title":"Shop"},{"path":"/products/:slug","title":"Product details"},{"path":"/cart","title":"Your bag"},{"path":"/checkout","title":"Checkout"},{"path":"/order-confirmation","title":"Order confirmation"},{"path":"/about","title":"About GlowSkin"},{"path":"/contact","title":"Contact"}]}
