@@ -1,10 +1,11 @@
 import { ArrowUpRight, Leaf } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { MotionSection } from '../common/MotionSection';
 import { siteInfo } from '../../data/siteInfo';
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-ink text-white">
+    <MotionSection as="footer" className="mt-24 bg-ink text-white">
       <div className="site-container grid gap-12 py-14 md:grid-cols-[1.3fr_1fr_1fr] md:py-20">
         <div>
           <Link to="/" className="inline-flex items-center gap-2"><span className="brand-mark brand-mark-light"><span /></span><span className="font-display text-3xl">GlowSkin</span></Link>
@@ -21,6 +22,6 @@ export function Footer() {
         </div>
       </div>
       <div className="site-container flex flex-col gap-3 border-t border-white/10 py-5 text-[10px] uppercase tracking-[0.12em] text-white/40 sm:flex-row sm:items-center sm:justify-between"><span>© {new Date().getFullYear()} GlowSkin. Demo storefront.</span><span className="inline-flex items-center gap-2"><Leaf size={12} /> Care, with intention.</span></div>
-    </footer>
+    </MotionSection>
   );
 }

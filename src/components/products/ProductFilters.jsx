@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import { categories } from '../../data/categories';
 
@@ -5,7 +6,7 @@ export function ProductFilters({ filters, setFilters, onClear, resultCount }) {
   const update = (key, value) => setFilters((current) => ({ ...current, [key]: value }));
   const active = filters.query || filters.category || filters.maxPrice < 100 || filters.minRating > 0 || filters.sort !== 'popular';
   return (
-    <section className="mb-8 rounded-2xl border border-ink/10 bg-white/65 p-4 sm:p-5" aria-label="Product filters">
+    <motion.section className="mb-8 rounded-2xl border border-ink/10 bg-white/65 p-4 sm:p-5" aria-label="Product filters" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.08 }}>
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="flex items-center gap-2 text-sm font-medium"><SlidersHorizontal size={16} /> Find your ritual</div>
         <span className="text-xs text-ink/55">{resultCount} {resultCount === 1 ? 'product' : 'products'}</span>
@@ -21,6 +22,6 @@ export function ProductFilters({ filters, setFilters, onClear, resultCount }) {
         <label><span className="sr-only">Sort products</span><select value={filters.sort} onChange={(event) => update('sort', event.target.value)} className="filter-input"><option value="popular">Most loved</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="newest">Newest</option></select></label>
       </div>
       {active && <button onClick={onClear} className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-sage hover:text-ink"><X size={13} /> Clear all filters</button>}
-    </section>
+    </motion.section>
   );
 }
